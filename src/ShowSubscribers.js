@@ -1,26 +1,9 @@
 import Header from "./Header";
-import './App.css';
+import './ShowSubscribers.css';
 import { Component } from "react";
 import { render } from "@testing-library/react";
 
-function clickHandler() {
-  alert("Delete Clicked");
-}
-
-
-class App extends Component {
-
-  constructor() 
-  {
-    super();
-    this.state = {
-      subscribersListToShow: []
-    }
-  }
-  
-  
-
-  // let subscribers = [
+// let subscribers = [
   //   {
   //     id: 1,
   //     name: "Shilpa Bhat",
@@ -37,6 +20,10 @@ class App extends Component {
   //     phone: "8055438390"
   //   }
   // ]
+
+class ShowSubscribers extends Component {  
+
+
   render(){
     return (
       <div>
@@ -49,12 +36,12 @@ class App extends Component {
           </div>
           
           {
-            this.state.subscribersListToShow.map(sub => {
+            this.props.subscribersList.map(sub => {
               return <div key={sub.id} className="grid-container">
                 <span className="grid-item">{sub.name}</span>
                 <span className="grid-item">{sub.phone}</span>
                 <span className="grid-item action-btn-container"> 
-                  <button className="custom-btn delete-btn" onClick={clickHandler.bind(this, "Delete this message")}>Delete</button> 
+                  <button className="custom-btn delete-btn" >Delete</button> 
                 </span>
               </div>
             })
@@ -66,4 +53,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default ShowSubscribers;
